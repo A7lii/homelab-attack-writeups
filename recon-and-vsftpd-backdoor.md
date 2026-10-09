@@ -24,7 +24,7 @@ The vsftpd 2.3.4 backdoor works because someone added malicious code to the sour
     set RHOSTS 192.168.56.102
     run
 
-This opened a shell. Running `whoami` returned `root`, confirming full root access on the target.
+This opened a shell. Running `cat /etc/passwd` confirmed full root access, since the first line showed `root:x:0:0:root:/root:/bin/bash` and the file was fully readable, something only root or a privileged user could do.
 
 ![Exploit](screenshots/vsftpd-exploit.png)
 
